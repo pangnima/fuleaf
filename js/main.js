@@ -30,7 +30,9 @@ $(function () {
 				fitToSection: false,
 				Parallax :true,
 				autoScrolling:true,
-				verticalCentered:true
+				verticalCentered:true,
+				responsiveHeight: 330,
+				responsiveSlides: true
 			});
 		}
 	}
@@ -127,4 +129,8 @@ $(function () {
 	// 	"transform" : "translate3d(0px, " + st  + "%, .01px)",
 	// 	"-webkit-transform" : "translate3d(0px, " + st  + "%, .01px)"
 	// });
+
+	$(window).resize(function(){
+		console.log( $('.full-page-wrap').height() *$('.full-page-wrap').length )
+	})
 })

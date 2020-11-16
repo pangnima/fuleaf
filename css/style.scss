@@ -425,3 +425,106 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 // @keyframes logo{
 // 	100% { background-position:0 -37800px}
 // }
+
+@media (max-width: 1240px){
+	@function vw($target) {
+		$vw-context: (1240 * 0.01) * 1px;
+		@return ($target / $vw-context) * 1vw;
+	}
+	#fp-nav{display: none;}
+}
+
+@media (max-width: 768px){
+	#blanker{height:45px !important;}
+	.full-page-wrap{
+		.page-contents{
+			// white-space: nowrap;
+			box-sizing: border-box;
+			padding:0 50px;
+			position: static;
+			transform: translate(0);
+			.search-wrap{
+				font-size: 47px;
+			}
+			.title-wrap {
+				font-size:36px;
+				display: block;
+			}
+
+			.filter-wrap {
+				ul {
+					li {
+						font-size: 16px;
+						padding: 0 16px;
+						height: 36px;
+						line-height: 34px;
+						border: solid 1px #666;
+					}
+				}
+			}
+			
+			.magazine-box{
+				display: block;
+				width:100%;
+				.magazine-img{
+					display: none;
+				}
+			}
+			.magazine-box-bottom {
+				h2 {
+					font-size:28px;
+				}
+				.swiper-container {
+					display: none;
+				}
+			}
+
+			.fuleaf-intro h2{
+				font-size:30px;
+			}
+		}
+	}
+	.over-page{display: none;}
+	// .imgAction{
+	// background:#000 url(../images/css_sprites.png) 0 0 no-repeat;
+	// /* background-size:cover; */
+	// overflow: hidden;
+	// width:100%;
+	// height:126px;
+	// position: fixed;
+	// top:50%; left:50%;
+	// transform: translate(-50%,-50%);
+	// /* transition: all .4s; */
+	// animation: logo 20s steps(60) forwards;
+	// 	/* animation-fill-mode: both ; */
+
+	// 	&.stop{
+	// 		animation-play-state: paused;
+	// 	}
+	// }
+
+	// @keyframes logo{
+	// 	100% { background-position:0 -37800px}
+	// }
+}
+
+// .box{height:200px; background-color: #000;width:200px;margin:0 auto;
+// 	-webkit-transform-origin: 0 100%;
+// 	transform-origin: 0 100%;
+// 	-webkit-transform: perspective(800px) rotateX(-180deg);
+// 	transform: perspective(800px) rotateX(-180deg);
+// }
+
+
+//   @function vw($px-vw, $base-vw: 1292px)    
+//   @return ($px-vw * 100vw) / $base-vw
+
+// .container
+// font-size: vw(16px)
+
+// @function get-vw($target) {
+// 	$vw-context: (1300 * 0.01) * 1px;
+// 	@return ($target / $vw-context) * 1vw;
+//   }
+
+//   ont-size: get-vw(40px);
