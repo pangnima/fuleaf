@@ -371,6 +371,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
   .full-page-wrap .page-contents .magazine-box .magazine-img { width: 151px; height: 200px; }
   .full-page-wrap .page-contents .magazine-box-bottom h2 { font-size: 28px; }
   .full-page-wrap .page-contents .fuleaf-intro h2 { font-size: 30px; }
+  .over-page::before { content: ""; position: absolute; top: -100vh; left: 0; bottom: 0; right: 0; }
   .over-page .scroll-page .title { font-size: 54px; margin-top: 0; }
   .over-page .scroll-page .sub-text { font-size: 16px; word-break: keep-all; }
   .over-page .scroll-page .vision { padding: 0 24px; }

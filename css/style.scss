@@ -605,6 +605,8 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 }
 
 @media (max-width: 768px){
+
+
 	@function vw($target) {
 		$vw-context: (760 * 0.01) * 1px;
 		@return ($target / $vw-context) * 1vw;
@@ -656,6 +658,12 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 		}
 	}
 	.over-page{
+		&::before{
+			content: "";
+			position: absolute;
+			top:-100vh; left:0; bottom:0; right:0;
+
+		}
 		.scroll-page{
 			.title{font-size:54px; margin-top:0;}
 			.sub-text{font-size: 16px;word-break: keep-all;}
