@@ -27,7 +27,22 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
     display: none;
 }
 .wrap {max-width:1660px;margin:0 auto;}
-
+.move-arrow{
+	background: url(../images/move-arrow.png) 0 0 no-repeat;
+	width:40px; height:40px;
+	background-size:100% 100%;
+	position: absolute;
+	bottom:40px;
+	left:50%;
+	transform: translateX(-50%);
+	animation: moving 1s alternate infinite ;
+}
+@keyframes moving{
+	0%{bottom:40px;}
+	25%{bottom:20px;}
+	50%{bottom:40px;}
+	100%{bottom:20px;}
+}
 #blinker{
     -webkit-animation: blink .5s step-end infinite;
 	animation: blink .5s step-end infinite;
@@ -386,14 +401,14 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 				}
 
 				.action-logo{
-					background: url(../images/css_sprites.png) 0 0 no-repeat;
+					background: url(../images/css_sprites.png) 50% 0 no-repeat;
 					overflow: hidden;
 					width: 100%;
 					height: 126px;
 					position: absolute;
 					top: 50%;
-					left: 0px;
-					transform: translate(-10%,-50%);
+					left: 50%;
+					transform: translate(-50%,-50%);
 					z-index: 101;
 					&.stop{
 					-webkit-animation-play-state: paused;
@@ -444,11 +459,11 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 					opacity: 0;
 				}
 				@-webkit-keyframes logo{
-				100% { background-position:0 -37800px}
+				100% { background-position:50% -37800px}
 				}
 
 				@keyframes logo{
-				100% { background-position:0 -37800px}
+				100% { background-position:50% -37800px}
 				}
 			}
 		}
@@ -547,7 +562,6 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 
 			}
 			.magazine-box-bottom {
-				max-width: 100%;
 				.swiper-container .swiper-slide{width:auto;}
 			}
 		}
@@ -573,7 +587,7 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 			}
 			.mission{padding:0 50px;
 				.right-box{
-					.img-wrap{position: static; margin-top:40px;}
+					.img-wrap{position: static; margin:40px auto 0;}
 				}
 			}
 			.essence{ padding:0 50px;
@@ -615,11 +629,20 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 
 	.full-page-wrap{
 		&[data-anchor="magazine-2"] .fp-tableCell{padding:0;}
-		.page-contents{
-			.search-wrap {font-size:47px;}
+		.page-contents{padding:0 24px; overflow: hidden;
+			.search-wrap {
+				font-size: 42px;
+				padding: 0;
+				margin: 0;
+				.search-input input {max-width:200px;height:52px;font-size:42px;}
+				.btn-link{border-bottom:solid 4px #000;
+					&::after{width:32px; height: 32px; background-size:100% 100%; top:0;}
+				}
+			}
 			.title-wrap {
 				font-size:36px;
 				display: block;
+				.select-text{display: inline-block;}
 			}
 			.writer-info {margin-top:15px;font-size:14px;}
 
@@ -633,9 +656,18 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 						border: solid 1px #666;
 					}
 				}
+				.depth-slide .btn-prev {width:46px;height:36px;padding:0 16px;line-height:34px;}
+				.depth-slide .btn-search button{font-size:19px;
+					&:after{
+						width:14px; height:14px;
+						margin-left:8px;
+						background-size:100% 100%;
+					}
+				}
 			}
 			
-			.magazine-box{
+			
+			.magazine-box{padding:0;
 				.magazine-info {
 					h2{font-size:26px}
 					dl{margin-top:14px;
@@ -647,9 +679,9 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 			}
 
 			
-			.magazine-box-bottom {
-				
-				h2 {font-size:28px;}
+			.magazine-box-bottom {padding:0;
+				h2 {font-size:28px;    display: flex;
+					justify-content: space-between;}
 			}
 
 			.fuleaf-intro h2{
@@ -665,6 +697,7 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 
 		}
 		.scroll-page{
+			.contents-box{padding:40px 0;}
 			.title{font-size:54px; margin-top:0;}
 			.sub-text{font-size: 16px;word-break: keep-all;}
 			.vision{padding:0 24px;
@@ -685,7 +718,10 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 					}
 				}
 			}
-			.essence{
+			.essence{padding:0 24px;
+				.contents-box{
+					padding: 40px 0;
+				}
 				.essence-list{
 					li {
 						h3 {font-size:36px;}
@@ -698,21 +734,29 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 			}
 
 			// 35217
-			.logo-action{
+			.logo-action{padding:0 24px;
 				.action-box{
 					.action-bg{height:360px;}
 					.action-logo{
-						background: url(../images/css_sprites_m.png) 0 0 no-repeat;
-						height:117px;
+						background: url(../images/css_sprites_m.png) 50% 0 no-repeat;
+						background-size: 100% 17608px;
+						height:58px;
+					}
+
+					&.active{
+						.action-logo{
+							-webkit-animation: logo 4s steps(60) forwards;
+							animation: logo 4s steps(60) forwards;
+						}
 					}
 				}
 
 				@-webkit-keyframes logo{
-					100% { background-position:0 -35100px}
+					100% { background-position:50% -17550px}
 				}
 
 				@keyframes logo{
-					100% { background-position:0 -35100px}
+					100% { background-position:50% -17550px}
 				}
 				@-webkit-keyframes action {
 					0%{	transform: scale(1.2) translateY(110px); opacity: 0;}
@@ -739,7 +783,7 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 				}
 			}
 
-			.logo-info {
+			.logo-info {padding:0 24px;
 				.left-box{
 					.title{
 						font-size:36px;
@@ -748,6 +792,7 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 				}
 			}
 			.make{
+				padding:40px 24px;
 				.title{
 					font-size:36px;
 					word-break: keep-all;

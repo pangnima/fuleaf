@@ -36,6 +36,18 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 
 .wrap { max-width: 1660px; margin: 0 auto; }
 
+.move-arrow { background: url(../images/move-arrow.png) 0 0 no-repeat; width: 40px; height: 40px; background-size: 100% 100%; position: absolute; bottom: 40px; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); -webkit-animation: moving 1s alternate infinite; animation: moving 1s alternate infinite; }
+
+@-webkit-keyframes moving { 0% { bottom: 40px; }
+  25% { bottom: 20px; }
+  50% { bottom: 40px; }
+  100% { bottom: 20px; } }
+
+@keyframes moving { 0% { bottom: 40px; }
+  25% { bottom: 20px; }
+  50% { bottom: 40px; }
+  100% { bottom: 20px; } }
+
 #blinker { -webkit-animation: blink .5s step-end infinite; animation: blink .5s step-end infinite; width: 6px; background: #00b564; display: inline-block; position: relative; vertical-align: 3px; margin: 0 12px; }
 
 @keyframes blink { from, to { opacity: 0; }
@@ -228,7 +240,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 
 .over-page .scroll-page .logo-action .action-box .action-bg { background: url(../images/bg-logo.png) 50% 50% no-repeat; max-width: 1380px; width: 100%; margin: 0 auto; height: 800px; -webkit-transform: scale(1.2) translateY(110px); transform: scale(1.2) translateY(110px); opacity: 0; }
 
-.over-page .scroll-page .logo-action .action-box .action-logo { background: url(../images/css_sprites.png) 0 0 no-repeat; overflow: hidden; width: 100%; height: 126px; position: absolute; top: 50%; left: 0px; -webkit-transform: translate(-10%, -50%); transform: translate(-10%, -50%); z-index: 101; }
+.over-page .scroll-page .logo-action .action-box .action-logo { background: url(../images/css_sprites.png) 50% 0 no-repeat; overflow: hidden; width: 100%; height: 126px; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); z-index: 101; }
 
 .over-page .scroll-page .logo-action .action-box .action-logo.stop { -webkit-animation-play-state: paused; animation-play-state: paused; }
 
@@ -302,9 +314,9 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 
 .over-page .scroll-page .logo-action .action-box .dim { position: absolute; top: 0; width: 100%; height: 100%; background: #000; opacity: 0; }
 
-@-webkit-keyframes logo { 100% { background-position: 0 -37800px; } }
+@-webkit-keyframes logo { 100% { background-position: 50% -37800px; } }
 
-@keyframes logo { 100% { background-position: 0 -37800px; } }
+@keyframes logo { 100% { background-position: 50% -37800px; } }
 
 .over-page .scroll-page .logo-info { padding: 90px 150px 160px; background: #fafaf8; -ms-flex-wrap: wrap; flex-wrap: wrap; }
 
@@ -332,7 +344,6 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
   .full-page-wrap .page-contents .magazine-box .magazine-info dl dt { text-align: center; }
   .full-page-wrap .page-contents .magazine-box .magazine-info dl dd { text-align: center; }
   .full-page-wrap .page-contents .magazine-box .magazine-info .writer-info { text-align: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
-  .full-page-wrap .page-contents .magazine-box-bottom { max-width: 100%; }
   .full-page-wrap .page-contents .magazine-box-bottom .swiper-container .swiper-slide { width: auto; }
   .over-page .scroll-page .contents-box { display: block; padding: 70px 0; overflow: hidden; }
   .over-page .scroll-page .contents-box .left-box { width: 100%; }
@@ -343,7 +354,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
   .over-page .scroll-page .believe .right-box .sub-title, .over-page .scroll-page .believe .right-box .title { display: none; }
   .over-page .scroll-page .believe .right-box .img-box { position: static; margin-top: 40px; }
   .over-page .scroll-page .mission { padding: 0 50px; }
-  .over-page .scroll-page .mission .right-box .img-wrap { position: static; margin-top: 40px; }
+  .over-page .scroll-page .mission .right-box .img-wrap { position: static; margin: 40px auto 0; }
   .over-page .scroll-page .essence { padding: 0 50px; }
   .over-page .scroll-page .essence .essence-list { margin-top: 40px; -ms-flex-wrap: wrap; flex-wrap: wrap; }
   .over-page .scroll-page .essence .essence-list li { -webkit-box-flex: 0; -ms-flex: 0 0 100%; flex: 0 0 100%; border-top: 0; padding: 40px 0; }
@@ -358,20 +369,31 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 
 @media (max-width: 768px) { #blanker { height: 45px !important; }
   .full-page-wrap[data-anchor="magazine-2"] .fp-tableCell { padding: 0; }
-  .full-page-wrap .page-contents .search-wrap { font-size: 47px; }
+  .full-page-wrap .page-contents { padding: 0 24px; overflow: hidden; }
+  .full-page-wrap .page-contents .search-wrap { font-size: 42px; padding: 0; margin: 0; }
+  .full-page-wrap .page-contents .search-wrap .search-input input { max-width: 200px; height: 52px; font-size: 42px; }
+  .full-page-wrap .page-contents .search-wrap .btn-link { border-bottom: solid 4px #000; }
+  .full-page-wrap .page-contents .search-wrap .btn-link::after { width: 32px; height: 32px; background-size: 100% 100%; top: 0; }
   .full-page-wrap .page-contents .title-wrap { font-size: 36px; display: block; }
+  .full-page-wrap .page-contents .title-wrap .select-text { display: inline-block; }
   .full-page-wrap .page-contents .writer-info { margin-top: 15px; font-size: 14px; }
   .full-page-wrap .page-contents .filter-wrap { margin-top: 24px; }
   .full-page-wrap .page-contents .filter-wrap ul { -webkit-box-pack: left; -ms-flex-pack: left; justify-content: left; }
   .full-page-wrap .page-contents .filter-wrap ul li { font-size: 16px; padding: 0 16px; height: 36px; line-height: 34px; border: solid 1px #666; }
+  .full-page-wrap .page-contents .filter-wrap .depth-slide .btn-prev { width: 46px; height: 36px; padding: 0 16px; line-height: 34px; }
+  .full-page-wrap .page-contents .filter-wrap .depth-slide .btn-search button { font-size: 19px; }
+  .full-page-wrap .page-contents .filter-wrap .depth-slide .btn-search button:after { width: 14px; height: 14px; margin-left: 8px; background-size: 100% 100%; }
+  .full-page-wrap .page-contents .magazine-box { padding: 0; }
   .full-page-wrap .page-contents .magazine-box .magazine-info h2 { font-size: 26px; }
   .full-page-wrap .page-contents .magazine-box .magazine-info dl { margin-top: 14px; }
   .full-page-wrap .page-contents .magazine-box .magazine-info dl dt { font-size: 15px; }
   .full-page-wrap .page-contents .magazine-box .magazine-info dl dd { font-size: 15px; }
   .full-page-wrap .page-contents .magazine-box .magazine-img { width: 151px; height: 200px; }
-  .full-page-wrap .page-contents .magazine-box-bottom h2 { font-size: 28px; }
+  .full-page-wrap .page-contents .magazine-box-bottom { padding: 0; }
+  .full-page-wrap .page-contents .magazine-box-bottom h2 { font-size: 28px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
   .full-page-wrap .page-contents .fuleaf-intro h2 { font-size: 30px; }
   .over-page::before { content: ""; position: absolute; top: -100vh; left: 0; bottom: 0; right: 0; }
+  .over-page .scroll-page .contents-box { padding: 40px 0; }
   .over-page .scroll-page .title { font-size: 54px; margin-top: 0; }
   .over-page .scroll-page .sub-text { font-size: 16px; word-break: keep-all; }
   .over-page .scroll-page .vision { padding: 0 24px; }
@@ -385,14 +407,18 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
   .over-page .scroll-page .mission .right-box .img-wrap { width: 100%; }
   .over-page .scroll-page .mission .right-box .img-wrap .img-box { -webkit-box-flex: 0; -ms-flex: 0 0 49%; flex: 0 0 49%; width: 100%; height: auto; }
   .over-page .scroll-page .mission .right-box .img-wrap .img-box:last-child { height: auto; margin-top: 19px; -webkit-box-flex: 0; -ms-flex: 0 0 100%; flex: 0 0 100%; }
+  .over-page .scroll-page .essence { padding: 0 24px; }
+  .over-page .scroll-page .essence .contents-box { padding: 40px 0; }
   .over-page .scroll-page .essence .essence-list li h3 { font-size: 36px; }
   .over-page .scroll-page .essence .essence-list li dl { margin-top: 22px; }
   .over-page .scroll-page .essence .essence-list li dl dt { font-size: 16px; }
   .over-page .scroll-page .essence .essence-list li dl dd { font-size: 16px; }
+  .over-page .scroll-page .logo-action { padding: 0 24px; }
   .over-page .scroll-page .logo-action .action-box .action-bg { height: 360px; }
-  .over-page .scroll-page .logo-action .action-box .action-logo { background: url(../images/css_sprites_m.png) 0 0 no-repeat; height: 117px; }
-  @-webkit-keyframes logo { 100% { background-position: 0 -35100px; } }
-  @keyframes logo { 100% { background-position: 0 -35100px; } }
+  .over-page .scroll-page .logo-action .action-box .action-logo { background: url(../images/css_sprites_m.png) 50% 0 no-repeat; background-size: 100% 17608px; height: 58px; }
+  .over-page .scroll-page .logo-action .action-box.active .action-logo { -webkit-animation: logo 4s steps(60) forwards; animation: logo 4s steps(60) forwards; }
+  @-webkit-keyframes logo { 100% { background-position: 50% -17550px; } }
+  @keyframes logo { 100% { background-position: 50% -17550px; } }
   @-webkit-keyframes action { 0% { -webkit-transform: scale(1.2) translateY(110px); transform: scale(1.2) translateY(110px);
       opacity: 0; }
     15% { -webkit-transform: scale(1) translateY(0); transform: scale(1) translateY(0);
@@ -451,7 +477,9 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
       height: 180px;
       background-position-y: 100%;
       opacity: 1; } }
+  .over-page .scroll-page .logo-info { padding: 0 24px; }
   .over-page .scroll-page .logo-info .left-box .title { font-size: 36px; word-break: keep-all; }
+  .over-page .scroll-page .make { padding: 40px 24px; }
   .over-page .scroll-page .make .title { font-size: 36px; word-break: keep-all; }
   .over-page .scroll-page .make .bg-make h3 { font-size: 26px; } }
 /*# sourceMappingURL=style.min.css.map */

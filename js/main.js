@@ -149,8 +149,8 @@ $(function () {
 	// 	"-webkit-transform" : "translate3d(0px, " + st  + "%, .01px)"
 	// });
 
-	$(window).resize(function(){
-		console.log( $('.full-page-wrap').height() *$('.full-page-wrap').length )
-	})
+	// $(window).resize(function(){
+	// 	console.log( $('.full-page-wrap').height() *$('.full-page-wrap').length )
+	// })
 
 })

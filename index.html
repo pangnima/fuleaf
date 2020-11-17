@@ -29,12 +29,11 @@
 							data-aos="fade-up" 
 							data-aos-duration="400"
 						>잘 키우는 방법이</p>
-						<p
-							data-aos="fade-up" 
-							data-aos-duration="600"
-						class="search-hidden">궁금하다.</p>
+						<p class="search-hidden">궁금하다.</p>
 						<a href="#" class="btn-link">보러가기</a>
 					</div>
+
+					<span class="move-arrow"></span>
 				</div>
 			</section>
 			<!-- // 검색 -->
@@ -214,6 +213,8 @@
 					<div class="fuleaf-intro">
 						<h2 data-aos="fade-up">안녕하세요<br><span data-aos="fade-up" data-aos-duration="1500">플립을 소개합니다.</span></h2>
 					</div>
+
+					<span class="move-arrow"></span>
 				</div>
 			</section>
 			<!-- // 소개페이지 -->
@@ -407,17 +408,19 @@
 
 			var mySwiper = new Swiper('.swiper-container', {
 				loop: true,
-				slidesPerView: 'auto',
+				slidesPerView: 5.5,
 				spaceBetween: 30,
-				// width:1024
 				breakpoints: {
-					// when window width is >= 320px
+					320: {
+						slidesPerView: 1.5,
+						spaceBetween: 10
+					},
 					760: {
-						slidesPerView: 2,
+						slidesPerView: 4,
 						spaceBetween: 20
 					},
 					960: {
-						slidesPerView: 'auto',
+						slidesPerView: 5,
 						spaceBetween: 20
 					}
 				}
@@ -444,7 +447,6 @@
 			})
 
 			$('.depth-2 ul li').on('click' ,function(){
-
 				$(this).toggleClass('active');
 				$(this).siblings('.btn-search').addClass('isvisible')
 			})
