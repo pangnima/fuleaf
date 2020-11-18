@@ -26,7 +26,7 @@ html,body {
 html::-webkit-scrollbar,body::-webkit-scrollbar {
     display: none;
 }
-.wrap {max-width:1660px;margin:0 auto;}
+// .wrap {max-width:1660px;margin:0 auto;}
 .move-arrow{
 	background: url(../images/move-arrow.png) 0 0 no-repeat;
 	width:40px; height:40px;
@@ -86,8 +86,22 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 		// title-wrap
 		.title-wrap{
 			font-size:54px;font-weight:bold;display:flex;justify-content:center;
-			.select-text{
-				&.active{color:#00b564; border-bottom:solid 4px #00b564;}
+			.select-text{position: relative;
+				span{vertical-align: top;}
+				&.active{overflow: hidden;
+					span {
+						display: block;
+						color:#00b564; border-bottom:solid 4px #00b564;
+						transform: translateX(-100%);
+						animation: selected .5s forwards;
+						animation-delay: .5s;
+					}
+				}
+			}
+
+			@keyframes selected {
+				0%{transform: translateX(100%); opacity: 0;}
+				100%{transform: translateX(0);opacity: 1; }
 			}
 			p:last-child{margin-left:4px;}
 		}
@@ -138,6 +152,24 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 					height:60px; line-height: 54px;
 					box-sizing: border-box;
 					margin-top:12px;
+					position: relative;
+					span{
+						font-family: Montserrat;
+						font-size: 24px;
+						letter-spacing: -0.72px;
+						text-align: center;
+						color: #ffffff;
+						position: absolute;
+						top:-14px; right:-9px;
+						width: 36px;
+						height: 36px;
+						line-height: 36px;
+						opacity: 0.9;
+						box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+						border: solid 1px #00b564;
+						background: #00b564;
+						border-radius: 50%;
+					}
 					&:first-child{margin-left:0;}
 					&.active{border-color:#00b564; color:#00b564;}
 				}
@@ -273,8 +305,17 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 
 .over-page{
 	position: relative;
+	width:100%;
+	top:100%;
 	.scroll-page{
-		z-index:99999;position:absolute;top:0;width:100%;background:#fff;;overflow:hidden;
+		z-index:99999;position:absolute;top:0;width:100%;overflow:hidden;
+		// &:before{
+		// 	content: "";
+		// 	position: absolute;
+		// 	top:-100px; left:0; right:0;
+		// 	height:200px;
+		// 	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+		// }
 		.contents-box{
 			display: flex;
 			justify-content: space-between;
@@ -306,6 +347,12 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 
 		// 비전
 		.vision{padding:161px 150px;
+			background: linear-gradient(to bottom, 
+			rgba(255,255,255,0.2) 0%,
+			rgba(255,255,255,0.3) 5%,
+			rgba(255,255,255,0.4) 10%,
+			rgba(255,255,255,0.5) 15%,
+			rgba(255,255,255,1) 20%,rgba(255,255,255,1) 100%);
 			.left-box {width:370px;flex:0 0 370px;}
 			.right-box {margin-left:230px;flex:1 0 auto;
 				.vision-slide{overflow:hidden; width:1440px;}
@@ -329,7 +376,7 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 		}
 
 		// 미션
-		.mission{padding:214px 150px 214px;
+		.mission{padding:214px 150px 214px; background: #fff;
 			.left-box {width:360px;flex:0 0 370px;}
 			.right-box {margin-left:353px;flex:1 0 auto; position: relative;
 				.img-wrap{
@@ -480,6 +527,7 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 			padding:90px 150px 160px;
 			background: #fafaf8;
 			flex-wrap: wrap;
+			background: #fff;
 			.left-box{
 				flex:0 0 471px;
 				.title{margin-top:0;
@@ -495,6 +543,7 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 		}
 
 		.make{padding:90px 150px 160px;
+			background: #fff;
 			max-width: 1660px; margin:0 auto;
 			box-sizing: border-box;
 			.title {
@@ -530,8 +579,18 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 		$vw-context: (1240 * 0.01) * 1px;
 		@return ($target / $vw-context) * 1vw;
 	}
-	#fp-nav{display: none;}
-
+	#fp-nav{
+		&.left{
+			left:25px;
+			ul li a {width:5px; height:5px;
+				span {width:5px; height:5px; border-radius: 50%;
+					&:hover, &:focus{width:5px; height:5px; border-radius: 50%;}
+				}
+			}
+			.fp-tooltip{display: none;}
+		}
+	}
+	// #fp-nav ul li a, .fp-slidesNav ul li a
 	.full-page-wrap{
 		&[data-anchor="magazine-2"] .fp-tableCell{justify-content: left; padding:0 50px;}
 		.page-contents{padding:0 50px;
@@ -619,8 +678,6 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 }
 
 @media (max-width: 768px){
-
-
 	@function vw($target) {
 		$vw-context: (760 * 0.01) * 1px;
 		@return ($target / $vw-context) * 1vw;
@@ -629,7 +686,7 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 
 	.full-page-wrap{
 		&[data-anchor="magazine-2"] .fp-tableCell{padding:0;}
-		.page-contents{padding:0 24px; overflow: hidden;
+		.page-contents{padding:0 50px; overflow: hidden;
 			.search-wrap {
 				font-size: 42px;
 				padding: 0;
@@ -654,6 +711,13 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 						height: 36px;
 						line-height: 34px;
 						border: solid 1px #666;
+						span{
+							top:-7px; right:-5px;
+							width: 18px;
+							height: 18px;
+							line-height: 18px;
+							font-size:12px;
+						}
 					}
 				}
 				.depth-slide .btn-prev {width:46px;height:36px;padding:0 16px;line-height:34px;}
@@ -690,12 +754,6 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 		}
 	}
 	.over-page{
-		&::before{
-			content: "";
-			position: absolute;
-			top:-100vh; left:0; bottom:0; right:0;
-
-		}
 		.scroll-page{
 			.contents-box{padding:40px 0;}
 			.title{font-size:54px; margin-top:0;}
@@ -798,7 +856,10 @@ html::-webkit-scrollbar,body::-webkit-scrollbar {
 					word-break: keep-all;
 					// br{display: inline-block;}
 				}
-				.bg-make h3{font-size:26px;}
+				.bg-make {
+					margin-top:20px;
+					h3{font-size:26px;}
+				}
 			}
 		}
 	}
