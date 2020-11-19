@@ -124,10 +124,7 @@ html.fp-enabled,
 .fp-slidesNav ul li {
 	display: flex;
 	align-items: center;
-	margin:20px 0;
-    /* width: 14px; */
-    /* height: 13px; */
-    /* margin: 7px; */
+	margin:14px 0;
     position:relative;
 }
 .fp-slidesNav ul li {
@@ -148,7 +145,8 @@ html.fp-enabled,
 .fp-slidesNav ul li a.active span,
 #fp-nav ul li:hover a.active span,
 .fp-slidesNav ul li:hover a.active span{
-    height:6px;
+	height:0;
+	border:solid 3px #00b564;
 	width: 26px;
 	background: #00b564;
     /* margin: -6px 0 0 -6px; */
@@ -158,8 +156,6 @@ html.fp-enabled,
 	font-family: SourceHanSansK;
 	font-size: 14px;
 	font-weight: bold;
-	font-stretch: normal;
-	font-style: normal;
 	line-height: 1.43;
 	letter-spacing: -0.42px;
 	text-align: left;
@@ -219,7 +215,7 @@ html.fp-enabled,
 }
 #fp-nav ul li .fp-tooltip.left {
 	left: 20px;
-	margin-left:20px;
+	margin-left:4px;
 }
 .fp-auto-height.fp-section,
 .fp-auto-height .fp-slide,
