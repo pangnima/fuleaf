@@ -1474,7 +1474,7 @@
 
                 $(scrollSettings.element).animate(
                     scrollSettings.options,
-                options.scrollingSpeed, options.easing).promise().done(function () { //only one single callback in case of animating  `html, body`
+               	 options.scrollingSpeed, options.easing).promise().done(function () { //only one single callback in case of animating  `html, body`
                     if(options.scrollBar){
 
                         /* Hack!
