@@ -224,10 +224,7 @@ $(function () {
 		navigationPosition: 'left',
 		responsiveHeight: 330,
 		sectionSelector:'.full-page-wrap',
-		// scrollBar:true,
-		// scrollOverflow: true,
-		// scrollOverflowReset: true,
-
+		scrolbar:true,
 
 		afterLoad: function(anchorLink, index){
 			$('.full-page-wrap.active [data-aos]').addClass("aos-animate");
@@ -254,13 +251,76 @@ $(function () {
 						$('html, body').css({overflow:'visible'})
 					}
 				})
+
+					
+				// 터치
+				let initialX = null, initialY = null;
+				let target = document.querySelector('.wrap');
+
+				function initTouch(e) {
+					initialX = `${e.touches ? e.touches[0].clientX : e.clientX}`;
+					initialY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
+				};
+
+				function swipeDirection(e) {
+					if (initialX !== null && initialY !== null) {
+						const currentX = `${e.touches ? e.touches[0].clientX : e.clientX}`,
+						currentY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
+
+						let diffX = initialX - currentX,
+						diffY = initialY - currentY;
+
+						if(Math.abs(diffX) > Math.abs(diffY)){
+							if(0 < diffX){
+								console.log("to left")
+							} else{
+								console.log("to right")
+							}
+						} else{
+							if(0 < diffY){
+								console.log("to top")
+								$.fn.fullpage.setMouseWheelScrolling(false);
+								$.fn.fullpage.setKeyboardScrolling(false);
+								$('#fullpage').css({position:'fixed'})
+								$('html, body').css({overflow:'visible'})
+							} else{
+								console.log("to bottom")
+								$.fn.fullpage.setMouseWheelScrolling(true)
+								$.fn.fullpage.setKeyboardScrolling(true);
+								$('html, body').css({overflow:'hidden'})
+								$('#fullpage').css({position:'relative'})
+							}	
+						}
+						initialX = null;
+						initialY = null;
+					}
+				}
+
+				window.addEventListener("touchstart", initTouch);
+				window.addEventListener("touchmove", swipeDirection);
+
 			}
 		}
 	});
-	
+
+
 	var isVisible = false;
 	$(window).on('mousewheel DOMMouseScroll touchstart' , function(e){
 		var scrollT =$(window).scrollTop()
+
+		var imgAction = function(ele){
+			var tg = $(`.${ele}`).offset().top - 400;
+			if(scrollT>tg){
+				$(`.${ele}`).css({
+					backgroundPositionY:-(scrollT-tg)/10+"px"
+				})
+			}
+		}
+		imgAction('believe-img');
+		imgAction('mission-img-1');
+		imgAction('mission-img-2');
+		imgAction('mission-img-3');
+		
 		/*  로고액션 */
 		if (checkVisible($('.logo-action'))&&!isVisible) {
 			// alert("Visible!!!");

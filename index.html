@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="./css/jquery.fullpage.css">
 	<link rel="stylesheet" href="./css/aos.css">
 	<link rel="stylesheet" href="./css/swiper.css">
-	<link rel="stylesheet" href="./css/style.min.css">
+	<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 	<div class="wrap">
@@ -15,52 +15,55 @@
 			<!-- 검색 -->
 			<section class="full-page-wrap">
 				<div class="page-contents">
-					<p class="title" data-aos="fade-up" data-aos-duration="1000">plant search</p>
-					<div class="search-wrap">
-						<p 
-							data-aos="fade-up" 
-							data-aos-duration="1000"
-						>
-							<span class="search-del-text">나는</span>
-							<input class="typer">을
-						</p>
-						<!-- <p class="search-input"><input type="text"><span><strong id="blinker"></strong>을</span></p> -->
-						<p data-aos="fade-up" data-aos-duration="1250">잘 키우는 방법이</p>
-						<p data-aos="fade-up" data-aos-duration="1300" class="search-del-text">궁금하다.</p>
-						<a href="#" class="btn-link" data-aos="fade-up">보러가기</a>
+					<div class="search-box">
+						<p class="title" data-aos="fade-up" data-aos-duration="1000">plant search</p>
+						<div class="search-wrap">
+							<p 
+								data-aos="fade-up" 
+								data-aos-duration="1000"
+							>
+								<span class="search-del-text">나는</span>
+								<input class="typer">을
+							</p>
+							<!-- <p class="search-input"><input type="text"><span><strong id="blinker"></strong>을</span></p> -->
+							<p data-aos="fade-up" data-aos-duration="1250">잘 키우는 방법이</p>
+							<p data-aos="fade-up" data-aos-duration="1300" class="search-del-text">궁금하다.</p>
+							<a href="#" class="btn-link" data-aos="fade-up">보러가기</a>
+						</div>
 					</div>
-
-					<span class="move-arrow"></span>
 				</div>
+				<span class="move-arrow"></span>
 			</section>
 			<!-- // 검색 -->
 	
 			<!-- 필터 -->
 			<section class="full-page-wrap">
 				<div class="page-contents">
-					<div class="title-wrap" data-aos="fade-up">
-						<div class="text-slide">
-							<p class="select-text"><span>어떤 식물을</span></p>
+					<div class="filter-box">
+						<div class="title-wrap" data-aos="fade-up">
+							<div class="text-slide">
+								<p class="select-text"><span>어떤 식물을</span></p>
+							</div>
+							<p>식물을 찾고 있나요?</p>
 						</div>
-						<p>식물을 찾고 있나요?</p>
-					</div>
-					<div class="filter-wrap" data-aos="fade-up">
-						<div class="depth-slide">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide depth-1">
-									<ul class="filter-item-box"></ul>
-								</div>
-		
-								<div class="swiper-slide depth-2">
-									<ul class="filter-item-box">
-										<li class="btn-prev">이전</li>
-									</ul>
-								</div>
-		
-								<div class="swiper-slide depth-3">
-									<ul class="filter-item-box">
-										<li class="btn-prev">이전</li>
-									</ul>
+						<div class="filter-wrap" data-aos="fade-up">
+							<div class="depth-slide">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide depth-1">
+										<ul class="filter-item-box"></ul>
+									</div>
+			
+									<div class="swiper-slide depth-2">
+										<ul class="filter-item-box">
+											<li class="btn-prev">이전</li>
+										</ul>
+									</div>
+			
+									<div class="swiper-slide depth-3">
+										<ul class="filter-item-box">
+											<li class="btn-prev">이전</li>
+										</ul>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -245,11 +248,13 @@
 			<!-- 소개페이지 -->
 			<section class="full-page-wrap testing">
 				<div class="page-contents">
-					<div class="fuleaf-intro">
-						<h2 data-aos="fade-up">안녕하세요<br><span data-aos="fade-up" data-aos-duration="2500">플립을 소개합니다.</span></h2>
-						<span class="move-arrow"></span>
+					<div class="inter-box">
+						<div class="fuleaf-intro">
+							<h2 data-aos="fade-up">안녕하세요<br><span data-aos="fade-up" data-aos-duration="2500">플립을 소개합니다.</span></h2>
+						</div>
 					</div>
 				</div>
+				<span class="move-arrow"></span>
 			</section>
 			<!-- // 소개페이지 -->
 		</div>
@@ -304,8 +309,8 @@
 					<div class="right-box">
 						<p class="sub-title kr" data-aos="fade-up">플립의 철학</p>
 						<h2 class="title kr" data-aos="fade-up">우리가 믿는 것</h2>
-						<div class="img-box actions">
-							<!-- <img src="../fuleaf/images/believe-1.png" alt=""> -->
+						<div class="img-box believe-img">
+							<img src="images/believe-1.png" alt="">
 						</div>
 					</div>
 				</div>
@@ -325,13 +330,13 @@
 	
 					<div class="right-box">
 						<div class="img-wrap">
-							<div class="img-box">
+							<div class="img-box mission-img-1">
 								<img src="./images/mission-1.png" alt="">
 							</div>
-							<div class="img-box">
+							<div class="img-box mission-img-2">
 								<img src="./images/mission-2.png" alt="">
 							</div>
-							<div class="img-box">
+							<div class="img-box mission-img-3">
 								<img src="./images/mission-3.png" alt="">
 							</div>
 						</div>
@@ -348,33 +353,39 @@
 	
 					<div>
 						<ul class="essence-list">
-							<li>
+							<li data-aos="fade-down" data-aos-duration="200">
 								<div>
 									<h3>쉽게<span>1</span></h3>
 									<dl>
 										<dt>easy</dt>
-										<dd>식물을 잘 모르는 사람도 
-											얼마든지 쉽게 접할 수 있는</dd>
+										<dd>
+											<p>식물을 잘 모르는 사람도</p>
+											<p>얼마든지 쉽게</p>
+										</dd>
 									</dl>
 								</div>
 							</li>
-							<li>
+							<li data-aos="fade-down" data-aos-duration="1000">
 								<div>
 									<h3>즐거운<span>2</span></h3>
 									<dl>
 										<dt>enjoy</dt>
-										<dd>식물과 함께하는 희로애락의
-											모든 과정을 즐길 수 있는</dd>
+										<dd>
+											<p>식물과 함께하는 희로애락의</p>
+											<p>모든 과정을 즐길 수 있는</p>
+										</dd>
 									</dl>
 								</div>
 							</li>
-							<li>
+							<li data-aos="fade-down" data-aos-duration="1500">
 								<div>
 									<h3>함께하는<span>3</span></h3>
 									<dl>
 										<dt>together</dt>
-										<dd>서로의 문제를 해결하고 
-											공감하면서 함께 성장하는</dd>
+										<dd>
+											<p>서로의 문제를 해결하고</p>
+											<p>공감하면서 함께 성장하는</p>
+										</dd>
 									</dl>
 								</div>
 							</li>
@@ -408,12 +419,13 @@
 
 
 			<div class="make">
-				<h2 class="sub-title" data-aos="fade-up">make history together</h2>
-				<p class="title kr" data-aos="fade-up">플립은 올바른 식물문화를 만들고 있습니다.</p>
-
-				<div class="bg-make">
-					<img src="./images/together.png" alt="">
-					<h3>당신도 함께하시겠습니까?</h3>
+				<div class="contents-box">
+					<h2 class="sub-title" data-aos="fade-up">make history together</h2>
+					<p class="title kr" data-aos="fade-up">플립은 올바른 식물문화를 만들고 있습니다.</p>
+					<div class="bg-make">
+						<img src="./images/together.png" alt="">
+						<h3>당신도 함께하시겠습니까?</h3>
+					</div>
 				</div>
 			</div>
 		</div>
